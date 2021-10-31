@@ -9,7 +9,9 @@ const MEDIA_URL = "/media/"
 
 export function deletePlayer(id) {
 
-    fetch(BASE_URL + REST_URL + "/" + id, {
+    document.querySelector(`tr[data-id="${id}"]`).remove()
+
+    fetch(`${BASE_URL}${REST_URL}/${id}`, {
             method: "delete",
             headers: {
                 "Content-Type": "application/json; charset=utf-8",

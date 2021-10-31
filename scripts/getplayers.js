@@ -68,6 +68,7 @@ function displayPlayerList(player) {
     playerClone.querySelector("[data-field=age]").textContent = player.age
     playerClone.querySelector("[data-field=email]").textContent = player.email
     playerClone.querySelector(".playerpic").src = BASE_URL + MEDIA_URL + player.pic + "?s=w"
+    playerClone.querySelector("tr").dataset.id = player.id
     playerClone.querySelector(".subtract").addEventListener("click", () => deleteScript.deletePlayer(player.id))
 
     document.querySelector("#list tbody").appendChild(playerClone)
