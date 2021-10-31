@@ -1,7 +1,9 @@
 "use strict"
 import * as pushScript from '../scripts/pushplayer.js'
 import * as getScript from '../scripts/getplayers.js'
-import * as deleteScript from '../scripts/deleteplayer.js'
+import * as putScript from '../scripts/putdata.js'
+
+export const playerID = "6177d73a868101090008d079"
 
 const submitData = document.querySelector(".inputdata")
 
@@ -10,7 +12,7 @@ addEventListener('DOMContentLoaded', () => {
 
     listenForPlayerInput()
     displayListFromGet()
-        // listenForPlayerDelete()
+    listenForPlayerChange()
 })
 
 export function listenForPlayerInput() {
@@ -26,11 +28,11 @@ export function displayListFromGet() {
     getScript.init()
 }
 
-// function listenForPlayerDelete() {
+function listenForPlayerChange() {
 
-//     const deleteData = document.querySelector("template#playerTemplate.subtract")
+    const changeDataButton = document.querySelector(".putdata")
 
-//     deleteData.addEventListener("click", () => {
-//         deleteScript.deletePlayer(player._id)
-//     })
-// }
+    changeDataButton.addEventListener("click", () => {
+        putScript.putData(playerID)
+    })
+}
