@@ -9,7 +9,9 @@ const testPlayer = {
     image: "dont know how to do this"
 }
 
-export function pushPlayer() {
+addEventListener("DOMContentLoaded", pushPlayer)
+
+function pushPlayer() {
     console.log("Pushing a player to db")
 
     const postPlayer = JSON.stringify(testPlayer)
@@ -20,7 +22,7 @@ export function pushPlayer() {
                 "x-apikey": "617812ed8597142da1745ad1",
                 "cache-control": "no-cache"
             },
-            body: postPlayer
+            body: postPlayer,
         })
         .then(response => response.json())
         .then(testPlayer => console.log(testPlayer))

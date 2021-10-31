@@ -1,6 +1,6 @@
 "use strict"
 
-
+// import * as pushScript './pushplayer.js'
 
 addEventListener('DOMContentLoaded', () => {
 
@@ -11,7 +11,5 @@ addEventListener('DOMContentLoaded', () => {
 function listenForPlayerInput() {
     console.log("player input")
 
-    pushScript.pushPlayer()
+    // pushScript.pushPlayer()
 }
-
-import * as pushScript './pushplayer.js'
