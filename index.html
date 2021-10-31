@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="scripts/main.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js" defer></script>
+    <script src="scripts/animate.js" defer></script>
+    <script src="scripts/background.js" defer></script>
+
+</head>
+
+<body>
+    <div class="myCursor"></div>
+    <canvas id="canvas1"></canvas>
+    <section id="header">
+        <div class="headerText">
+            <div class="logo">
+                <h1 class="animatedTitle">DESIGNING THE FUTURE</h1>
+            </div>
+        </div>
+        <div class="links">
+            <div id="logo" class="toplink ">
+                <h1 class="">6p4c design</h1>
+            </div>
+            <div id="aboutMe" class="toplink ">
+                <h1 class="">about me</h1>
+                <div class="linkBox hoverAboutMe hide"></div>
+            </div>
+            <div id="contact" class="toplink ">
+                <h1 class="">contact</h1>
+                <div class="linkBox hoverContact hide"></div>
+
+            </div>
+            <div id="myWork" class="toplink ">
+                <h1 class="">my Work</h1>
+                <div class="linkBox hoverMyWork hide"></div>
+
+            </div>
+            <div id="something" class="toplink hide">
+                <h1 class="">something</h1>
+                <div class="linkBox hoverSomething hide"></div>
+
+            </div>
+        </div>
+
+    </section>
+    <div id="main">
+        <div class="catch">
+            <table id="list">
+                <thead>
+                    <tr id="sorting">
+                        <th data-action="sort" data-sort-direction="asc" data-sort="name">Name</th>
+                        <th data-action="sort" data-sort-direction="asc" data-sort="age">Age</th>
+                        <th data-action="sort" data-sort-direction="asc" data-sort="email">E-mail</th>
+                        <th data-action="sort" data-sort-direction="asc" data-sort="pic">Picture</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- template will be copied and inserted here -->
+                </tbody>
+            </table>
+
+            <template id="playerTemplate">
+            <tr>
+              <td data-field="name"></td>
+              <td data-field="age"></td>
+              <td data-field="email"></td>
+              <td data-field="pic"><img type="pic" src="" alt="" width="48" height="48" class="playerpic" onerror="this.onerror=null;this.src='';"></td>
+            </tr>
+            </template>
+        </div>
+    </div>
+    </canvas>
+    <script src="scripts/getplayers.js" defer></script>
+</body>
+
+</html>
