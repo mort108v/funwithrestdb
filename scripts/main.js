@@ -2,18 +2,21 @@
 import * as pushScript from '../scripts/pushplayer.js'
 import * as getScript from '../scripts/getplayers.js'
 
-
+const submitData = document.querySelector(".inputdata")
 
 addEventListener('DOMContentLoaded', () => {
 
-    // listenForPlayerInput()
+    listenForPlayerInput()
     displayListFromGet()
 })
 
 export function listenForPlayerInput() {
     console.log("player input")
 
-    pushScript.pushPlayer()
+    submitData.addEventListener("click", () => {
+        pushScript.pushPlayer()
+    })
+
 }
 
 export function displayListFromGet() {

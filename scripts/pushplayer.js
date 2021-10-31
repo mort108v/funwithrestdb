@@ -5,20 +5,20 @@
 import * as main from '../scripts/main.js'
 
 const testPlayer = {
-    name: "Dennis ",
+    name: "Hans Face",
     age: 18,
     email: "jurgen@jurgen.dk",
-    image: "dont know this"
+    image: ""
 }
 
 const postPlayer = JSON.stringify(testPlayer)
     // addEventListener("DOMContentLoaded", pushPlayer)
 
-export function pushPlayer() {
+export async function pushPlayer() {
     console.log("Pushing a player to db")
 
 
-    fetch("https://pokerplayers-806c.restdb.io/rest/players", {
+    await fetch("https://pokerplayers-806c.restdb.io/rest/players/", {
             method: "post",
             headers: {
                 "Content-Type": "application/json; charset=utf-8",

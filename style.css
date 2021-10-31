@@ -243,3 +243,8 @@ tbody {
     opacity: 0.8;
     border-radius: 10px;
 }
+
+.inputdata {
+    position: relative;
+    z-index: 3;
+}

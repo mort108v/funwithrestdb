@@ -11,7 +11,7 @@ const Player = {
     name: "",
     age: "",
     email: "",
-    pic: ""
+    pic: []
 }
 
 export async function init() {
@@ -63,8 +63,8 @@ function displayPlayerList(player) {
     playerClone.querySelector("[data-field=name]").textContent = player.name
     playerClone.querySelector("[data-field=age]").textContent = player.age
     playerClone.querySelector("[data-field=email]").textContent = player.email
-    playerClone.querySelector(".playerpic").src = BASE_URL + MEDIA_URL + player.pic + "?s=t"
-
+    playerClone.querySelector(".playerpic").src = BASE_URL + MEDIA_URL + player.pic + "?s=w"
+    console.log(BASE_URL + MEDIA_URL + player.pic + "?s=t")
     document.querySelector("#list tbody").appendChild(playerClone)
 
 }
