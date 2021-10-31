@@ -6,12 +6,16 @@ import * as getScript from '../scripts/getplayers.js'
 
 addEventListener('DOMContentLoaded', () => {
 
-    listenForPlayerInput()
-    getScript.init()
+    // listenForPlayerInput()
+    displayListFromGet()
 })
 
-function listenForPlayerInput() {
+export function listenForPlayerInput() {
     console.log("player input")
 
     pushScript.pushPlayer()
+}
+
+export function displayListFromGet() {
+    getScript.init()
 }

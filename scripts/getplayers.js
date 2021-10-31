@@ -1,21 +1,26 @@
 "use strict"
 
-addEventListener("DOMContentLoaded", init)
+// addEventListener("DOMContentLoaded", init)
+
+const API_KEY = "617812ed8597142da1745ad1"
+const BASE_URL = "https://pokerplayers-806c.restdb.io"
+const REST_URL = "/rest/players"
+const MEDIA_URL = "/media/"
 
 const Player = {
     name: "",
     age: "",
     email: "",
-    pic: []
+    pic: ""
 }
 
-async function init() {
+export async function init() {
 
-    await fetch("https://pokerplayers-806c.restdb.io/rest/players", {
+    await fetch(BASE_URL + REST_URL, {
             method: "get",
             headers: {
                 "Content-Type": "application/json; charset=utf-8",
-                "x-apikey": "617812ed8597142da1745ad1",
+                "x-apikey": API_KEY,
                 "cache-control": "no-cache"
             }
         })
@@ -33,31 +38,12 @@ function prepData(data) {
 
 function makePlayer(data) {
 
-    // const imageMetaURL = fetch("https://pokerplayers-806c.restdb.io/media/" + data.image + "/meta/", {
-    //     method: "get",
-    //     headers: {
-    //         "Content-Type": "application/json; charset=utf-8",
-    //         "x-apikey": "617812ed8597142da1745ad1",
-    //         "cache-control": "no-cache"
-    //     }
-    // })
-
     const player = Object.create(Player)
 
     player.name = data.name
     player.age = data.age
     player.email = data.email
-    const mediaURL = "https://pokerplayers-806c.restdb.io/media/"
-    player.pic = mediaURL + data.image
-        // player.pic = imageMetaURL + imageMetaURL.fullname
-
-    // https://pokerplayers-806c.restdb.io/media/6177d76f868101090008d094?key=53662004652756265702
-
-    // const imageMetaURL = mediaURL + data.image + "/meta/"
-    // player.pic = imageMetaURL["fullname"]
-    // https://pokerplayers-806c.restdb.io/media/6177d76f868101090008d094
-    // player.pic = imageURL + data.image
-    // player.pic = data.origname + data.file
+    player.pic = data.image[0]
 
     console.log(player)
     return player
@@ -77,7 +63,7 @@ function displayPlayerList(player) {
     playerClone.querySelector("[data-field=name]").textContent = player.name
     playerClone.querySelector("[data-field=age]").textContent = player.age
     playerClone.querySelector("[data-field=email]").textContent = player.email
-    playerClone.querySelector(".playerpic").src = player.pic
+    playerClone.querySelector(".playerpic").src = BASE_URL + MEDIA_URL + player.pic + "?s=t"
 
     document.querySelector("#list tbody").appendChild(playerClone)
 
