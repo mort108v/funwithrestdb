@@ -9,7 +9,7 @@ const testPlayer = {
     image: "dont know how to do this"
 }
 
-addEventListener("DOMContentLoaded", pushPlayer)
+// addEventListener("DOMContentLoaded", pushPlayer)
 
 function pushPlayer() {
     console.log("Pushing a player to db")

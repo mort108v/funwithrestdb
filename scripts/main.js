@@ -1,15 +1,17 @@
 "use strict"
+import * as pushScript from '../scripts/pushplayer.js'
+import * as getScript from '../scripts/getplayers.js'
 
-// import * as pushScript './pushplayer.js'
+
 
 addEventListener('DOMContentLoaded', () => {
 
     listenForPlayerInput()
-
+    getScript.init()
 })
 
 function listenForPlayerInput() {
     console.log("player input")
 
-    // pushScript.pushPlayer()
+    pushScript.pushPlayer()
 }
