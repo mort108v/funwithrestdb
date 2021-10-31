@@ -25,16 +25,17 @@ addEventListener('DOMContentLoaded', () => {
 
 function listenForMouseOverTopLinks() {
 
-    linkBoxes.forEach(linkBox => {
-        linkBox.addEventListener('mouseout', () => {
-            linkBox.classList.add('hide')
-        })
-    })
-
     topLinks.forEach((topLink) => {
         topLink.addEventListener('mouseover', thisIsHovered)
         topLink.addEventListener('mouseout', thisIsCovered)
     })
+
+    linkBoxes.forEach(linkBox => {
+        linkBox.addEventListener('mouseleave', () => {
+            linkBox.classList.add('hide')
+        })
+    })
+
 }
 
 function thisIsCovered() {

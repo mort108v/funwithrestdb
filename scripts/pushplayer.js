@@ -3,23 +3,22 @@
 // import {listenForPlayerInput} from './main.js'
 
 import * as main from '../scripts/main.js'
+// import * as getplayers from '../scripts/getplayers.js'
 
 const testPlayer = {
-    name: "Hans Face",
-    age: 18,
-    email: "hans@jurgen.dk",
-    image: ""
+    name: "gggg head",
+    age: 128,
+    email: "ggggg@jurgen.dk",
+    image: []
 }
 
 const postPlayer = JSON.stringify(testPlayer)
-    // addEventListener("DOMContentLoaded", pushPlayer)
 
 export async function pushPlayer() {
     console.log("Pushing a player to db")
     console.log(postPlayer)
 
-
-    await fetch("https://pokerplayers-806c.restdb.io/rest/players/", {
+    await fetch("https://pokerplayers-806c.restdb.io/rest/players", {
             method: "post",
             headers: {
                 "Content-Type": "application/json; charset=utf-8",
@@ -29,6 +28,6 @@ export async function pushPlayer() {
             body: postPlayer,
         })
         .then(response => response.json())
-        .then(testPlayer => console.log(testPlayer))
-    main.displayListFromGet()
+        .then(main.displayListFromGet())
+
 }

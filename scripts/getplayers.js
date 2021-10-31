@@ -1,5 +1,7 @@
 "use strict"
 
+import * as deleteScript from '../scripts/deleteplayer.js'
+
 // addEventListener("DOMContentLoaded", init)
 
 const API_KEY = "617812ed8597142da1745ad1"
@@ -11,7 +13,8 @@ const Player = {
     name: "",
     age: "",
     email: "",
-    pic: []
+    pic: [],
+    id: ""
 }
 
 export async function init() {
@@ -44,6 +47,7 @@ function makePlayer(data) {
     player.age = data.age
     player.email = data.email
     player.pic = data.image[0]
+    player.id = data._id
 
     console.log(player)
     return player
@@ -64,7 +68,8 @@ function displayPlayerList(player) {
     playerClone.querySelector("[data-field=age]").textContent = player.age
     playerClone.querySelector("[data-field=email]").textContent = player.email
     playerClone.querySelector(".playerpic").src = BASE_URL + MEDIA_URL + player.pic + "?s=w"
-    console.log(BASE_URL + MEDIA_URL + player.pic + "?s=t")
+    playerClone.querySelector(".subtract").addEventListener("click", () => deleteScript.deletePlayer(player.id))
+
     document.querySelector("#list tbody").appendChild(playerClone)
 
 }
