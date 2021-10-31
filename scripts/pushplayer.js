@@ -7,7 +7,7 @@ import * as main from '../scripts/main.js'
 const testPlayer = {
     name: "Hans Face",
     age: 18,
-    email: "jurgen@jurgen.dk",
+    email: "hans@jurgen.dk",
     image: ""
 }
 
@@ -16,6 +16,7 @@ const postPlayer = JSON.stringify(testPlayer)
 
 export async function pushPlayer() {
     console.log("Pushing a player to db")
+    console.log(postPlayer)
 
 
     await fetch("https://pokerplayers-806c.restdb.io/rest/players/", {
