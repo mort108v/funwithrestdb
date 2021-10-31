@@ -21,9 +21,6 @@ async function init() {
         })
         .then(response => response.json())
         .then(data => prepData(data))
-
-
-
 }
 let players
 
